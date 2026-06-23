@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Editor
+.idea/
+.vscode/
+*.swp
+
+# Python (used to extract CV)
+__pycache__/
+*.pyc
