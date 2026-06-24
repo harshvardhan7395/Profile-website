@@ -1,8 +1,8 @@
 # Plan: CV Website for Harshvardhan Akhare
 
-Status: Completed
+Status: In Progress
 Created: 2026-06-23
-Completed: 2026-06-23
+Completed: —
 
 ## Overview
 Single-page personal website built from CV_31.pdf + GitHub repos.
@@ -27,3 +27,8 @@ Stack: Plain HTML/CSS/JS | Style: Minimal & clean | Host: GitHub Pages
 - [x] [07-github-projects.md](07-github-projects.md) — cards for 6 repos with stack tags and GitHub links
 - [x] [08-responsive-polish.md](08-responsive-polish.md) — mobile-first breakpoints, final CSS polish
 - [x] [09-github-pages-deploy.md](09-github-pages-deploy.md) — .github/workflows/deploy.yml
+- [x] [10-unified-projects-html.md](10-unified-projects-html.md) — unified Projects section with 14 cards (8 company + 6 GitHub), origin badges
+- [x] [11-badge-css-styles.md](11-badge-css-styles.md) — per-company and GitHub badge colours
+- [x] [12-projects-html-restructure.md](12-projects-html-restructure.md) — tabbed layout with expandable cards, 1-line summaries, full content on expand
+- [x] [13-tab-card-css.md](13-tab-card-css.md) — tab active styles, collapsed/expanded card states, mobile layout
+- [x] [14-tab-expand-js.md](14-tab-expand-js.md) — pure JS for tab switching and card expand/collapse

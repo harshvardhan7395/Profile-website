@@ -208,95 +208,338 @@
       </div>
     </section>
 
-    <!-- ── GITHUB PROJECTS ────────────────────────────────────── -->
+    <!-- ── PROJECTS ──────────────────────────────────────────── -->
     <section id="projects" class="section section--alt">
       <div class="container">
-        <h2 class="section__heading">GitHub Projects</h2>
-        <div class="projects-grid">
+        <h2 class="section__heading">Projects</h2>
 
-          <a href="https://github.com/harshvardhan7395/Workshop-Job-Board" target="_blank" rel="noopener" class="project-card">
-            <div class="project-card__header">
-              <svg class="project-card__icon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-              <h3 class="project-card__title">Workshop Job Board</h3>
-            </div>
-            <p class="project-card__desc">Real-time job assignment for automotive workshops with drag-and-drop, optimistic UI, and NgRx state management.</p>
-            <div class="chips chips--small">
-              <span class="chip">Angular 17</span>
-              <span class="chip">NgRx</span>
-              <span class="chip">Socket.io</span>
-              <span class="chip">TypeScript</span>
-            </div>
-          </a>
+        <!-- Tab buttons -->
+        <div class="project-tabs">
+          <button class="tab-btn tab-btn--active" data-tab="company">Company Projects</button>
+          <button class="tab-btn" data-tab="github">GitHub Projects</button>
+        </div>
 
-          <a href="https://github.com/harshvardhan7395/Engagement-Briefing-Tool" target="_blank" rel="noopener" class="project-card">
-            <div class="project-card__header">
-              <svg class="project-card__icon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-              <h3 class="project-card__title">Engagement Briefing Tool</h3>
-            </div>
-            <p class="project-card__desc">RAG pipeline converting unstructured consulting notes into searchable briefings using vector embeddings and LLMs.</p>
-            <div class="chips chips--small">
-              <span class="chip">Next.js 14</span>
-              <span class="chip">Claude AI</span>
-              <span class="chip">pgvector</span>
-              <span class="chip">Supabase</span>
-            </div>
-          </a>
+        <!-- Company Projects panel -->
+        <div class="tab-panel projects-grid" id="tab-company">
 
-          <a href="https://github.com/harshvardhan7395/Club-gap-api" target="_blank" rel="noopener" class="project-card">
-            <div class="project-card__header">
-              <svg class="project-card__icon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-              <h3 class="project-card__title">Club Gap API</h3>
+          <div class="project-card" data-expanded="false">
+            <div class="project-card__summary">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Secure Network Gateway</h3>
+                <span class="badge badge--kyl">KYL Software</span>
+              </div>
+              <p class="project-card__tagline">Bidirectional WebSocket tunnel between two isolated government server environments with Ed25519 authentication, Redis caching, and full observability.</p>
+              <span class="project-card__toggle">▸ Details</span>
             </div>
-            <p class="project-card__desc">Spatial REST API that analyses gym check-in data via H3 hexagonal grid to identify optimal locations for new club openings.</p>
-            <div class="chips chips--small">
-              <span class="chip">NestJS</span>
-              <span class="chip">PostgreSQL</span>
-              <span class="chip">Prisma</span>
-              <span class="chip">H3</span>
+            <div class="project-card__detail" hidden>
+              <p class="project-card__desc">Designed and implemented a secure bidirectional communication bridge for a German security authority, connecting two isolated server environments previously limited to unidirectional proxy communication. The gateway establishes a persistent WebSocket tunnel at startup, routing HTTP requests from external microservices through to internal services and returning responses via the same channel. Built with dual Ed25519 signature verification, request idempotency, Redis response caching, and source-IP forwarding middleware — backed by full TDD coverage and structured observability via Winston logging and Prometheus metrics.</p>
+              <div class="chips chips--small">
+                <span class="chip">Node.js</span>
+                <span class="chip">Express</span>
+                <span class="chip">WebSocket</span>
+                <span class="chip">Ed25519</span>
+                <span class="chip">Redis</span>
+                <span class="chip">Docker</span>
+              </div>
             </div>
-          </a>
+          </div>
 
-          <a href="https://github.com/harshvardhan7395/Nexus-Admin" target="_blank" rel="noopener" class="project-card">
-            <div class="project-card__header">
-              <svg class="project-card__icon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-              <h3 class="project-card__title">Nexus Admin</h3>
+          <div class="project-card" data-expanded="false">
+            <div class="project-card__summary">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Financial Controlling API</h3>
+                <span class="badge badge--kyl">KYL Software</span>
+              </div>
+              <p class="project-card__tagline">RESTful financial backend for facility management with OpenAPI validation, OAuth2 auth, and HATEOAS — eliminating 4 hours of manual work per project.</p>
+              <span class="project-card__toggle">▸ Details</span>
             </div>
-            <p class="project-card__desc">Distributed systems admin dashboard for P2P file sync observability: live conflict diffs and TLS certificate lifecycle monitoring.</p>
-            <div class="chips chips--small">
-              <span class="chip">React 18</span>
-              <span class="chip">FastAPI</span>
-              <span class="chip">WebSocket</span>
-              <span class="chip">Python</span>
+            <div class="project-card__detail" hidden>
+              <p class="project-card__desc">Built a RESTful financial controlling backend for Lupp Facility Management GmbH, managing contracts, task orders, cost positions, and utilisation logs. Developed an OpenAPI-driven schema validation middleware for PATCH requests that automated a previously manual validation process, saving 4 hours of developer time per project. Implemented role-based authentication with OAuth2, Excel report generation, data import pipelines, and a HATEOAS middleware layer — all backed by PostgreSQL with Sequelize ORM and full TDD coverage.</p>
+              <div class="chips chips--small">
+                <span class="chip">Node.js</span>
+                <span class="chip">Express</span>
+                <span class="chip">PostgreSQL</span>
+                <span class="chip">Sequelize</span>
+                <span class="chip">OAuth2</span>
+                <span class="chip">OpenAPI</span>
+              </div>
             </div>
-          </a>
+          </div>
 
-          <a href="https://github.com/harshvardhan7395/Reward-Notification-Gateway" target="_blank" rel="noopener" class="project-card">
-            <div class="project-card__header">
-              <svg class="project-card__icon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-              <h3 class="project-card__title">Reward Notification Gateway</h3>
+          <div class="project-card" data-expanded="false">
+            <div class="project-card__summary">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Football Scouting & Analytics Platform</h3>
+                <span class="badge badge--vebasoft">vebasoft</span>
+              </div>
+              <p class="project-card__tagline">Real-time football analytics platform integrating 3+ data sources, reducing deployment times by 30% and boosting user engagement by 50%.</p>
+              <span class="project-card__toggle">▸ Details</span>
             </div>
-            <p class="project-card__desc">Horizontally scalable real-time reward push notifications using Redis Pub/Sub fan-out across multiple WebSocket server pods.</p>
-            <div class="chips chips--small">
-              <span class="chip">NestJS</span>
-              <span class="chip">Redis Pub/Sub</span>
-              <span class="chip">Socket.io</span>
-              <span class="chip">JWT</span>
+            <div class="project-card__detail" hidden>
+              <p class="project-card__desc">Developed and enhanced a web application for advanced football scouting and analytics, integrating data from 3+ sources for real-time match analysis. Built NestJS backend services to process match datasets, implemented NGXS state management, and added Jest-based backend testing. Improved the player profile UI and score visualisation module, boosting user engagement by 50%. Automated deployment via GitLab CI/CD, reducing deployment times by 30%.</p>
+              <div class="chips chips--small">
+                <span class="chip">Angular</span>
+                <span class="chip">Angular Material</span>
+                <span class="chip">NestJS</span>
+                <span class="chip">Chart.js</span>
+                <span class="chip">NGXS</span>
+                <span class="chip">Jest</span>
+              </div>
             </div>
-          </a>
+          </div>
 
-          <a href="https://github.com/harshvardhan7395/Sentinel-gateway" target="_blank" rel="noopener" class="project-card">
-            <div class="project-card__header">
-              <svg class="project-card__icon" aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
-              <h3 class="project-card__title">Sentinel Gateway</h3>
+          <div class="project-card" data-expanded="false">
+            <div class="project-card__summary">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Talent-Matching Website Redesign</h3>
+                <span class="badge badge--hiredigital">Hire Digital</span>
+              </div>
+              <p class="project-card__tagline">Next.js redesign of a talent marketplace with a scalable blog component managing 300+ posts and automated CI/CD pipelines.</p>
+              <span class="project-card__toggle">▸ Details</span>
             </div>
-            <p class="project-card__desc">Secure HTTP-to-WebSocket bridge with dual Ed25519 signature verification, Redis caching, and idempotency for security-sensitive environments.</p>
-            <div class="chips chips--small">
-              <span class="chip">Node.js</span>
-              <span class="chip">TypeScript</span>
-              <span class="chip">WebSocket</span>
-              <span class="chip">Redis</span>
+            <div class="project-card__detail" hidden>
+              <p class="project-card__desc">Redesigned and redeveloped the company's talent-matching website using Next.js, delivering a scalable blog post component capable of managing 300+ blogs. Established GitHub Actions pipelines for automated testing, building, and deployment across multiple web platforms, significantly improving release reliability.</p>
+              <div class="chips chips--small">
+                <span class="chip">Next.js</span>
+                <span class="chip">React</span>
+                <span class="chip">TypeScript</span>
+                <span class="chip">GitHub Actions</span>
+              </div>
             </div>
-          </a>
+          </div>
+
+          <div class="project-card" data-expanded="false">
+            <div class="project-card__summary">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Client Registration & Call Scheduling Portal</h3>
+                <span class="badge badge--hiredigital">Hire Digital</span>
+              </div>
+              <p class="project-card__tagline">Client onboarding and call-scheduling portal built with React and Django REST APIs for HireDigital's web portal.</p>
+              <span class="project-card__toggle">▸ Details</span>
+            </div>
+            <div class="project-card__detail" hidden>
+              <p class="project-card__desc">Built a new client registration interface using ReactJS and Django REST APIs, streamlining the client onboarding experience. Enhanced the call-scheduling component of HireDigital's React-Django web portal, improving the end-to-end engagement workflow for both clients and the internal team.</p>
+              <div class="chips chips--small">
+                <span class="chip">React</span>
+                <span class="chip">Django</span>
+                <span class="chip">Django REST Framework</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" data-expanded="false">
+            <div class="project-card__summary">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Supply Chain Audit Platform</h3>
+                <span class="badge badge--maverick">Maverick Labs</span>
+              </div>
+              <p class="project-card__tagline">Compliance audit platform serving 20+ European coal mine sites with structured supplier questionnaire workflows.</p>
+              <span class="project-card__toggle">▸ Details</span>
+            </div>
+            <div class="project-card__detail" hidden>
+              <p class="project-card__desc">Built a full-stack supply chain audit platform serving 20+ European coal mine sites, enabling suppliers to complete structured questionnaires and auditors to track compliance through data-driven workflows. Developed with Django REST Framework and Tailwind CSS, with reliability ensured through test-driven development using pytest and structured Agile delivery.</p>
+              <div class="chips chips--small">
+                <span class="chip">Django</span>
+                <span class="chip">Django REST Framework</span>
+                <span class="chip">Tailwind CSS</span>
+                <span class="chip">pytest</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" data-expanded="false">
+            <div class="project-card__summary">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Rumour Monitoring System</h3>
+                <span class="badge badge--maverick">Maverick Labs</span>
+              </div>
+              <p class="project-card__tagline">Cross-country misinformation tracker monitoring information spread in near real-time across 10+ countries.</p>
+              <span class="project-card__toggle">▸ Details</span>
+            </div>
+            <div class="project-card__detail" hidden>
+              <p class="project-card__desc">Built a cross-country rumour monitoring system tracking information spread across 10+ countries, enabling analysts to identify and respond to misinformation in near real-time. Developed using Django and Jinja templating with structured Agile delivery practices.</p>
+              <div class="chips chips--small">
+                <span class="chip">Django</span>
+                <span class="chip">Jinja</span>
+                <span class="chip">Python</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" data-expanded="false">
+            <div class="project-card__summary">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Educational Platform — College to Career</h3>
+                <span class="badge badge--maverick">Maverick Labs</span>
+              </div>
+              <p class="project-card__tagline">Job-matching platform connecting students from 170+ colleges with employment opportunities via eligibility-based filtering.</p>
+              <span class="project-card__toggle">▸ Details</span>
+            </div>
+            <div class="project-card__detail" hidden>
+              <p class="project-card__desc">Developed an educational platform connecting students from 170+ colleges with job opportunities. Built with Strapi (Node.js) and ReactJS, the platform included modules for student registration, document uploads, and eligibility-based filtering of job listings, significantly expanding access to employment for underrepresented students.</p>
+              <div class="chips chips--small">
+                <span class="chip">Strapi</span>
+                <span class="chip">Node.js</span>
+                <span class="chip">React</span>
+                <span class="chip">PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- GitHub Projects panel -->
+        <div class="tab-panel projects-grid" id="tab-github" hidden>
+
+          <div class="project-card" data-expanded="false">
+            <div class="project-card__summary">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Workshop Job Board</h3>
+                <div class="project-card__header-right">
+                  <a href="https://github.com/harshvardhan7395/Workshop-Job-Board" target="_blank" rel="noopener" class="badge badge--github project-card__repo-link">GitHub</a>
+                  <a href="https://github.com/harshvardhan7395/Workshop-Job-Board" target="_blank" rel="noopener" class="project-card__repo-link" aria-label="View on GitHub">
+                    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                  </a>
+                </div>
+              </div>
+              <p class="project-card__tagline">Real-time automotive workshop job assignment with drag-and-drop, optimistic UI, and three-layer test coverage.</p>
+              <span class="project-card__toggle">▸ Details</span>
+            </div>
+            <div class="project-card__detail" hidden>
+              <p class="project-card__desc">Real-time job assignment for automotive workshops with drag-and-drop, optimistic UI, and NgRx state management. Three-layer testing with Jest unit tests, effect tests, and Playwright e2e assertions.</p>
+              <div class="chips chips--small">
+                <span class="chip">Angular 17</span>
+                <span class="chip">NgRx</span>
+                <span class="chip">Socket.io</span>
+                <span class="chip">TypeScript</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" data-expanded="false">
+            <div class="project-card__summary">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Engagement Briefing Tool</h3>
+                <div class="project-card__header-right">
+                  <a href="https://github.com/harshvardhan7395/Engagement-Briefing-Tool" target="_blank" rel="noopener" class="badge badge--github project-card__repo-link">GitHub</a>
+                  <a href="https://github.com/harshvardhan7395/Engagement-Briefing-Tool" target="_blank" rel="noopener" class="project-card__repo-link" aria-label="View on GitHub">
+                    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                  </a>
+                </div>
+              </div>
+              <p class="project-card__tagline">RAG pipeline converting consulting notes into searchable briefings using Claude AI and pgvector with hallucination prevention.</p>
+              <span class="project-card__toggle">▸ Details</span>
+            </div>
+            <div class="project-card__detail" hidden>
+              <p class="project-card__desc">RAG pipeline converting unstructured consulting notes into searchable briefings using vector embeddings and LLMs. Uses 500-token chunks with overlap and a 0.75 similarity threshold to prevent hallucination.</p>
+              <div class="chips chips--small">
+                <span class="chip">Next.js 14</span>
+                <span class="chip">Claude AI</span>
+                <span class="chip">pgvector</span>
+                <span class="chip">Supabase</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" data-expanded="false">
+            <div class="project-card__summary">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Club Gap API</h3>
+                <div class="project-card__header-right">
+                  <a href="https://github.com/harshvardhan7395/Club-gap-api" target="_blank" rel="noopener" class="badge badge--github project-card__repo-link">GitHub</a>
+                  <a href="https://github.com/harshvardhan7395/Club-gap-api" target="_blank" rel="noopener" class="project-card__repo-link" aria-label="View on GitHub">
+                    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                  </a>
+                </div>
+              </div>
+              <p class="project-card__tagline">Spatial REST API identifying optimal gym locations via H3 hexagonal demand scoring with GDPR-compliant aggregation.</p>
+              <span class="project-card__toggle">▸ Details</span>
+            </div>
+            <div class="project-card__detail" hidden>
+              <p class="project-card__desc">Spatial REST API that analyses gym check-in data via H3 hexagonal grid to identify optimal locations for new club openings. GDPR-compliant — all results aggregated at cell level with no member IDs exposed.</p>
+              <div class="chips chips--small">
+                <span class="chip">NestJS</span>
+                <span class="chip">PostgreSQL</span>
+                <span class="chip">Prisma</span>
+                <span class="chip">H3</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" data-expanded="false">
+            <div class="project-card__summary">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Nexus Admin</h3>
+                <div class="project-card__header-right">
+                  <a href="https://github.com/harshvardhan7395/Nexus-Admin" target="_blank" rel="noopener" class="badge badge--github project-card__repo-link">GitHub</a>
+                  <a href="https://github.com/harshvardhan7395/Nexus-Admin" target="_blank" rel="noopener" class="project-card__repo-link" aria-label="View on GitHub">
+                    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                  </a>
+                </div>
+              </div>
+              <p class="project-card__tagline">Distributed systems dashboard for live P2P sync conflict visualisation and TLS certificate lifecycle monitoring.</p>
+              <span class="project-card__toggle">▸ Details</span>
+            </div>
+            <div class="project-card__detail" hidden>
+              <p class="project-card__desc">Distributed systems admin dashboard for P2P file sync observability: live side-by-side conflict diffs with vector clock visualisation, and TLS certificate lifecycle monitoring across node networks.</p>
+              <div class="chips chips--small">
+                <span class="chip">React 18</span>
+                <span class="chip">FastAPI</span>
+                <span class="chip">WebSocket</span>
+                <span class="chip">Python</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" data-expanded="false">
+            <div class="project-card__summary">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Reward Notification Gateway</h3>
+                <div class="project-card__header-right">
+                  <a href="https://github.com/harshvardhan7395/Reward-Notification-Gateway" target="_blank" rel="noopener" class="badge badge--github project-card__repo-link">GitHub</a>
+                  <a href="https://github.com/harshvardhan7395/Reward-Notification-Gateway" target="_blank" rel="noopener" class="project-card__repo-link" aria-label="View on GitHub">
+                    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                  </a>
+                </div>
+              </div>
+              <p class="project-card__tagline">Scalable real-time reward notifications via Redis Pub/Sub fan-out across multiple WebSocket server pods.</p>
+              <span class="project-card__toggle">▸ Details</span>
+            </div>
+            <div class="project-card__detail" hidden>
+              <p class="project-card__desc">Horizontally scalable real-time reward push notifications using Redis Pub/Sub fan-out across multiple WebSocket server pods. Any pod can publish; only the pod holding the target user's connection delivers — no sticky sessions required.</p>
+              <div class="chips chips--small">
+                <span class="chip">NestJS</span>
+                <span class="chip">Redis Pub/Sub</span>
+                <span class="chip">Socket.io</span>
+                <span class="chip">JWT</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-card" data-expanded="false">
+            <div class="project-card__summary">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Sentinel Gateway</h3>
+                <div class="project-card__header-right">
+                  <a href="https://github.com/harshvardhan7395/Sentinel-gateway" target="_blank" rel="noopener" class="badge badge--github project-card__repo-link">GitHub</a>
+                  <a href="https://github.com/harshvardhan7395/Sentinel-gateway" target="_blank" rel="noopener" class="project-card__repo-link" aria-label="View on GitHub">
+                    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                  </a>
+                </div>
+              </div>
+              <p class="project-card__tagline">Secure HTTP-to-WebSocket bridge with dual Ed25519 signature verification for security-sensitive government environments.</p>
+              <span class="project-card__toggle">▸ Details</span>
+            </div>
+            <div class="project-card__detail" hidden>
+              <p class="project-card__desc">Secure HTTP-to-WebSocket bridge with dual Ed25519 signature verification, Redis response caching, and idempotency enforcement for security-sensitive environments.</p>
+              <div class="chips chips--small">
+                <span class="chip">Node.js</span>
+                <span class="chip">TypeScript</span>
+                <span class="chip">WebSocket</span>
+                <span class="chip">Redis</span>
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -361,5 +604,30 @@
     </div>
   </footer>
 
+  <script>
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('tab-btn--active'));
+        document.querySelectorAll('.tab-panel').forEach(p => { p.hidden = true; });
+        btn.classList.add('tab-btn--active');
+        document.getElementById('tab-' + btn.dataset.tab).hidden = false;
+      });
+    });
+
+    // Card expand / collapse
+    document.querySelectorAll('.project-card__summary').forEach(summary => {
+      summary.addEventListener('click', e => {
+        if (e.target.closest('.project-card__repo-link')) return;
+        const card   = summary.closest('.project-card');
+        const detail = card.querySelector('.project-card__detail');
+        const toggle = card.querySelector('.project-card__toggle');
+        const expanded = card.dataset.expanded === 'true';
+        card.dataset.expanded  = expanded ? 'false' : 'true';
+        detail.hidden          = expanded;
+        toggle.textContent     = expanded ? '▸ Details' : '▾ Hide';
+      });
+    });
+  </script>
 </body>
 </html>
