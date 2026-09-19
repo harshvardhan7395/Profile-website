@@ -14,6 +14,7 @@ export class Chatbot {
 
   private readonly profileQa = inject(ProfileQaService);
 
+  readonly hintLabel = 'Ask me anything 👋';
   readonly tooltip = 'Ask me about my skills, experience, or projects';
 
   readonly isOpen = signal(false);

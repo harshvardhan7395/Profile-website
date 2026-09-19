@@ -1,4 +1,7 @@
 <div class="chatbot">
+  @if (!isOpen()) {
+    <span class="chatbot__hint" (click)="toggleOpen()">{{ hintLabel }}</span>
+  }
   <button class="chatbot__fab" (click)="toggleOpen()" aria-label="Toggle chat assistant" [title]="tooltip">💬</button>
 
   @if (isOpen()) {

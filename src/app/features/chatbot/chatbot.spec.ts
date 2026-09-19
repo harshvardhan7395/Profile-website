@@ -51,4 +51,28 @@ describe('Chatbot', () => {
 
     expect(fab?.getAttribute('title')?.length).toBeGreaterThan(0);
   });
+
+  it('should show a visible hint label next to the fab when closed, and hide it once opened', () => {
+    const fixture = TestBed.createComponent(Chatbot);
+    fixture.detectChanges();
+    const el = fixture.nativeElement as HTMLElement;
+
+    const hint = el.querySelector('.chatbot__hint');
+    expect(hint?.textContent?.trim().length).toBeGreaterThan(0);
+
+    fixture.componentInstance.toggleOpen();
+    fixture.detectChanges();
+
+    expect(el.querySelector('.chatbot__hint')).toBeFalsy();
+  });
+
+  it('should open the chatbot when the hint label is clicked', () => {
+    const fixture = TestBed.createComponent(Chatbot);
+    fixture.detectChanges();
+    const hint = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('.chatbot__hint')!;
+
+    hint.click();
+
+    expect(fixture.componentInstance.isOpen()).toBe(true);
+  });
 });
