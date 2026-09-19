@@ -240,24 +240,16 @@ svg { fill: currentColor; flex-shrink: 0; }
   gap: var(--space-sm);
 }
 
-.chips {
+.chip.skills__item {
+  display: inline-flex;
   align-items: center;
+  gap: 0.4rem;
 }
 
 .skills__logo {
-  width: 2.5rem;
-  height: 2.5rem;
-  padding: 0.5rem;
+  width: 1rem;
+  height: 1rem;
   object-fit: contain;
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.skills__logo:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .chips--small .chip {
