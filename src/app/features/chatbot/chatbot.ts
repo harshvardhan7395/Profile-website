@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, afterRenderEffect, signal } from '@angular/core';
+import { Component, ElementRef, ViewChild, afterRenderEffect, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProfileQaService } from './profile-qa.service';
 import { ChatMessage } from './chat-message.model';
@@ -12,11 +12,13 @@ import { ChatMessage } from './chat-message.model';
 export class Chatbot {
   @ViewChild('scrollAnchor') private scrollAnchor?: ElementRef<HTMLElement>;
 
+  private readonly profileQa = inject(ProfileQaService);
+
   readonly isOpen = signal(false);
   readonly messages = signal<ChatMessage[]>([]);
   draft = '';
 
-  constructor(private readonly profileQa: ProfileQaService) {
+  constructor() {
     afterRenderEffect(() => {
       this.messages();
       this.scrollAnchor?.nativeElement.scrollIntoView({ block: 'end' });

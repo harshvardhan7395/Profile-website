@@ -1,8 +1,10 @@
 import { Component, input, signal } from '@angular/core';
 import { CompanyBadgeVariant } from '../../../data/profile-data.models';
+import { GithubIcon } from '../../../shared/icons/github-icon';
 
 @Component({
   selector: 'app-project-card',
+  imports: [GithubIcon],
   templateUrl: './project-card.html',
 })
 export class ProjectCard {
