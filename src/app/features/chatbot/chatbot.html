@@ -1,5 +1,5 @@
 <div class="chatbot">
-  <button class="chatbot__fab" (click)="toggleOpen()" aria-label="Toggle chat assistant">💬</button>
+  <button class="chatbot__fab" (click)="toggleOpen()" aria-label="Toggle chat assistant" [title]="tooltip">💬</button>
 
   @if (isOpen()) {
     <div class="chatbot__panel">

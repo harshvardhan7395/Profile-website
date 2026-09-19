@@ -52,4 +52,21 @@ describe('ProfileQaService', () => {
     const answer = service.answer('asdkjqwoiuerqwoiuasdf nonsense gibberish');
     expect(answer.toLowerCase()).toContain('not sure');
   });
+
+  it('should return technology-specific experience when asked about experience with a named technology', () => {
+    const answer = service.answer('do you have experience with React?');
+    const reactProjects = [...PROFILE_DATA.companyProjects, ...PROFILE_DATA.githubProjects].filter((p) =>
+      p.tech.some((t) => t.toLowerCase() === 'react'),
+    );
+
+    expect(answer).toContain('React');
+    for (const project of reactProjects) {
+      expect(answer).toContain(project.title);
+    }
+  });
+
+  it('should prefer the more specific technology match when a longer tech name is also mentioned', () => {
+    const answer = service.answer('what is your experience with Angular Material?');
+    expect(answer).toContain('Angular Material');
+  });
 });

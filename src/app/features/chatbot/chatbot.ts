@@ -14,8 +14,10 @@ export class Chatbot {
 
   private readonly profileQa = inject(ProfileQaService);
 
+  readonly tooltip = 'Ask me about my skills, experience, or projects';
+
   readonly isOpen = signal(false);
-  readonly messages = signal<ChatMessage[]>([]);
+  readonly messages = signal<ChatMessage[]>([this.createGreeting()]);
   draft = '';
 
   constructor() {
@@ -41,5 +43,14 @@ export class Chatbot {
 
     this.messages.update((m) => [...m, userMessage, botMessage]);
     this.draft = '';
+  }
+
+  private createGreeting(): ChatMessage {
+    return {
+      id: crypto.randomUUID(),
+      role: 'bot',
+      text: `Hi! ${this.tooltip} — try "Tell me about FleetGate" or "What are your skills?"`,
+      timestamp: Date.now(),
+    };
   }
 }
