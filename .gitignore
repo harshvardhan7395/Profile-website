@@ -9,3 +9,24 @@
 # Python (used to extract CV)
 __pycache__/
 *.pyc
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# Angular build output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+/.angular/cache
+
+# Angular misc
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+__screenshots__/

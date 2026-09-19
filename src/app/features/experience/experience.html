@@ -1,0 +1,24 @@
+<section id="experience" class="section">
+  <div class="container">
+    <h2 class="section__heading">Experience</h2>
+    <div class="timeline">
+      @for (entry of experience; track entry.company + entry.dateRange) {
+        <article class="timeline__entry">
+          <div class="timeline__meta">
+            <span class="timeline__date">{{ entry.dateRange }}</span>
+            <span class="timeline__location">{{ entry.location }}</span>
+          </div>
+          <div class="timeline__body">
+            <h3 class="timeline__role">{{ entry.role }}</h3>
+            <p class="timeline__company">{{ entry.company }}</p>
+            <ul class="timeline__bullets">
+              @for (bullet of entry.bullets; track bullet) {
+                <li>{{ bullet }}</li>
+              }
+            </ul>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

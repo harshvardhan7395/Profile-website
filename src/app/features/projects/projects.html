@@ -1,0 +1,38 @@
+<section id="projects" class="section section--alt">
+  <div class="container">
+    <h2 class="section__heading">Projects</h2>
+
+    <div class="project-tabs">
+      <button class="tab-btn" [class.tab-btn--active]="activeTab() === 'company'" (click)="setTab('company')">Company Projects</button>
+      <button class="tab-btn" [class.tab-btn--active]="activeTab() === 'github'" (click)="setTab('github')">GitHub Projects</button>
+    </div>
+
+    @if (activeTab() === 'company') {
+      <div class="tab-panel projects-grid" id="tab-company">
+        @for (p of companyProjects; track p.title) {
+          <app-project-card
+            [title]="p.title"
+            [tagline]="p.tagline"
+            [description]="p.description"
+            [tech]="p.tech"
+            [badgeLabel]="p.badgeLabel"
+            [badgeVariant]="p.badgeVariant"
+          />
+        }
+      </div>
+    }
+    @if (activeTab() === 'github') {
+      <div class="tab-panel projects-grid" id="tab-github">
+        @for (p of githubProjects; track p.title) {
+          <app-project-card
+            [title]="p.title"
+            [tagline]="p.tagline"
+            [description]="p.description"
+            [tech]="p.tech"
+            [repoUrl]="p.repoUrl"
+          />
+        }
+      </div>
+    }
+  </div>
+</section>

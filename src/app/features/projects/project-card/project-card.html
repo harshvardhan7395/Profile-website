@@ -1,0 +1,27 @@
+<div class="project-card" [attr.data-expanded]="expanded()">
+  <div class="project-card__summary" (click)="toggleExpanded()">
+    <div class="project-card__header">
+      <h3 class="project-card__title">{{ title() }}</h3>
+      @if (repoUrl()) {
+        <div class="project-card__header-right">
+          <a [href]="repoUrl()" target="_blank" rel="noopener" class="badge badge--github project-card__repo-link" (click)="$event.stopPropagation()">GitHub</a>
+          <a [href]="repoUrl()" target="_blank" rel="noopener" class="project-card__repo-link" aria-label="View on GitHub" (click)="$event.stopPropagation()">
+            <app-github-icon />
+          </a>
+        </div>
+      } @else if (badgeLabel()) {
+        <span class="badge" [class]="'badge--' + badgeVariant()">{{ badgeLabel() }}</span>
+      }
+    </div>
+    <p class="project-card__tagline">{{ tagline() }}</p>
+    <span class="project-card__toggle">{{ expanded() ? '▾ Hide' : '▸ Details' }}</span>
+  </div>
+  <div class="project-card__detail" [hidden]="!expanded()">
+    <p class="project-card__desc">{{ description() }}</p>
+    <div class="chips chips--small">
+      @for (t of tech(); track t) {
+        <span class="chip">{{ t }}</span>
+      }
+    </div>
+  </div>
+</div>
