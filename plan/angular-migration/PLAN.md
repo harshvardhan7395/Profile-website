@@ -31,6 +31,6 @@ Migrate the static index.html/style.css portfolio to an Angular app (Vitest for 
 - [x] [05-project-card-component.md](05-project-card-component.md) — reusable `ProjectCardComponent` (company + GitHub variants)
 - [x] [06-projects-component.md](06-projects-component.md) — `ProjectsComponent` tab switching + rendering
 - [x] [07-profile-qa-service.md](07-profile-qa-service.md) — `ProfileQaService` entity lookup + intent scoring + fallback
-- [ ] [08-chatbot-component-and-flag.md](08-chatbot-component-and-flag.md) — `ChatbotComponent` + `FEATURE_FLAGS.chatbotEnabled` gating
+- [x] [08-chatbot-component-and-flag.md](08-chatbot-component-and-flag.md) — `ChatbotComponent` + `FEATURE_FLAGS.chatbotEnabled` gating
 - [ ] [09-ci-cd-build-deploy.md](09-ci-cd-build-deploy.md) — `angular.json` baseHref + `deploy.yml` build/test/deploy steps
 - [ ] [10-cleanup-and-merge.md](10-cleanup-and-merge.md) — remove `legacy/`, merge to `main`, live smoke check

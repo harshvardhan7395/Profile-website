@@ -1,8 +1,8 @@
 # Task 8: ChatbotComponent + feature flag
 
-Status: Pending
+Status: Completed
 Created: 2026-09-19
-Completed: —
+Completed: 2026-09-19
 
 ## Goal
 Build the chat UI wired to `ProfileQaService`, and gate its rendering behind a build-time boolean flag so the whole feature can be hidden by flipping one value and rebuilding.

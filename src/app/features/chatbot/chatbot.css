@@ -1,0 +1,117 @@
+.chatbot {
+  position: fixed;
+  right: var(--space-lg);
+  bottom: var(--space-lg);
+  z-index: 100;
+}
+
+.chatbot__fab {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+  transition: transform var(--transition);
+}
+
+.chatbot__fab:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.chatbot__panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(56px + var(--space-md));
+  width: 320px;
+  max-height: 440px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.chatbot__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-text);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.chatbot__close {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.chatbot__messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  min-height: 160px;
+}
+
+.chatbot__message {
+  max-width: 85%;
+  padding: 0.45rem 0.7rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.chatbot__message--user {
+  align-self: flex-end;
+  background: var(--color-accent-light);
+  color: var(--color-accent);
+}
+
+.chatbot__message--bot {
+  align-self: flex-start;
+  background: var(--color-chip-bg);
+  color: var(--color-chip-text);
+}
+
+.chatbot__input-row {
+  display: flex;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+  border-top: 1px solid var(--color-border);
+}
+
+.chatbot__input {
+  flex: 1;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font);
+  font-size: 0.82rem;
+}
+
+.chatbot__send {
+  padding: 0.4rem 0.75rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
