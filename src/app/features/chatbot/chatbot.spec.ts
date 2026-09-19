@@ -75,4 +75,76 @@ describe('Chatbot', () => {
 
     expect(fixture.componentInstance.isOpen()).toBe(true);
   });
+
+  describe('when open on a small screen', () => {
+    afterEach(() => {
+      document.body.style.overflow = '';
+    });
+
+    async function openChatbot() {
+      const fixture = TestBed.createComponent(Chatbot);
+      fixture.detectChanges();
+      fixture.componentInstance.toggleOpen();
+      fixture.detectChanges();
+      await fixture.whenStable();
+      return fixture;
+    }
+
+    it('should lock page scroll on the document body when the chat panel is open', async () => {
+      await openChatbot();
+
+      expect(document.body.style.overflow).toBe('hidden');
+    });
+
+    it('should release the page scroll lock when the chat panel is closed', async () => {
+      const fixture = await openChatbot();
+
+      fixture.componentInstance.toggleOpen();
+      fixture.detectChanges();
+      await fixture.whenStable();
+
+      expect(document.body.style.overflow).toBe('');
+    });
+
+    it('should release the page scroll lock when the component is destroyed while open', async () => {
+      const fixture = await openChatbot();
+
+      fixture.destroy();
+
+      expect(document.body.style.overflow).toBe('');
+    });
+
+    it('should focus the message input when the chat panel opens', async () => {
+      const fixture = await openChatbot();
+      const input = (fixture.nativeElement as HTMLElement).querySelector('.chatbot__input');
+
+      expect(input).toBeTruthy();
+      expect(document.activeElement).toBe(input);
+    });
+
+    it('should close the chat panel when Escape is pressed while it is open', async () => {
+      const fixture = await openChatbot();
+
+      document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+
+      expect(fixture.componentInstance.isOpen()).toBe(false);
+    });
+
+    it('should do nothing when Escape is pressed while the chat panel is closed', () => {
+      const fixture = TestBed.createComponent(Chatbot);
+      fixture.detectChanges();
+
+      document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }));
+
+      expect(fixture.componentInstance.isOpen()).toBe(false);
+    });
+
+    it('should expose the panel as a dialog labelled "Ask me anything" when it is open', async () => {
+      const fixture = await openChatbot();
+      const panel = (fixture.nativeElement as HTMLElement).querySelector('.chatbot__panel');
+
+      expect(panel?.getAttribute('role')).toBe('dialog');
+      expect(panel?.getAttribute('aria-label')).toBe('Ask me anything');
+    });
+  });
 });

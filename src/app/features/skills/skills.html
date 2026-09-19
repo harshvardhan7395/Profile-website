@@ -7,7 +7,11 @@
           <h3 class="skills__label">{{ group.label }}</h3>
           <div class="chips">
             @for (skill of group.skills; track skill) {
-              <span class="chip" [class.chip--accent]="group.accent">{{ skill }}</span>
+              @if (logoSrc(skill); as src) {
+                <img class="skills__item skills__logo" [src]="src" [alt]="skill" [title]="skill" />
+              } @else {
+                <span class="skills__item chip" [class.chip--accent]="group.accent">{{ skill }}</span>
+              }
             }
           </div>
         </div>
