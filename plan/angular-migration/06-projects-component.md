@@ -1,8 +1,8 @@
 # Task 6: ProjectsComponent (tabs)
 
-Status: Pending
+Status: Completed
 Created: 2026-09-19
-Completed: —
+Completed: 2026-09-19
 
 ## Goal
 Recreate the "Company Projects" / "GitHub Projects" tab switcher, rendering both project arrays from `PROFILE_DATA` through `ProjectCardComponent`.
