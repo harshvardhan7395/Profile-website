@@ -5,7 +5,7 @@
   <button class="chatbot__fab" (click)="toggleOpen()" aria-label="Toggle chat assistant" [title]="tooltip">💬</button>
 
   @if (isOpen()) {
-    <div class="chatbot__panel">
+    <div class="chatbot__panel" role="dialog" aria-label="Ask me anything">
       <div class="chatbot__header">
         <span>Ask me anything</span>
         <button type="button" class="chatbot__close" (click)="toggleOpen()" aria-label="Close chat">✕</button>
@@ -25,6 +25,7 @@
       <form class="chatbot__input-row" (submit)="$event.preventDefault(); send()">
         <input
           type="text"
+          #messageInput
           class="chatbot__input"
           name="draft"
           placeholder="Ask about my experience..."

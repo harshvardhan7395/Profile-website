@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild, afterRenderEffect, inject, signal } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, ElementRef, ViewChild, afterRenderEffect, effect, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProfileQaService } from './profile-qa.service';
 import { ChatMessage } from './chat-message.model';
@@ -8,10 +9,13 @@ import { ChatMessage } from './chat-message.model';
   imports: [FormsModule],
   templateUrl: './chatbot.html',
   styleUrl: './chatbot.css',
+  host: { '(document:keydown.escape)': 'close()' },
 })
 export class Chatbot {
   @ViewChild('scrollAnchor') private scrollAnchor?: ElementRef<HTMLElement>;
+  @ViewChild('messageInput') private messageInput?: ElementRef<HTMLInputElement>;
 
+  private readonly document = inject(DOCUMENT);
   private readonly profileQa = inject(ProfileQaService);
 
   readonly hintLabel = 'Ask me anything 👋';
@@ -22,6 +26,22 @@ export class Chatbot {
   draft = '';
 
   constructor() {
+    effect((onCleanup) => {
+      if (!this.isOpen()) {
+        return;
+      }
+      const body = this.document.body;
+      const previousOverflow = body.style.overflow;
+      body.style.overflow = 'hidden';
+      onCleanup(() => (body.style.overflow = previousOverflow));
+    });
+
+    afterRenderEffect(() => {
+      if (this.isOpen()) {
+        this.messageInput?.nativeElement.focus();
+      }
+    });
+
     afterRenderEffect(() => {
       this.messages();
       this.scrollAnchor?.nativeElement.scrollIntoView({ block: 'end' });
@@ -30,6 +50,10 @@ export class Chatbot {
 
   toggleOpen(): void {
     this.isOpen.update((v) => !v);
+  }
+
+  close(): void {
+    this.isOpen.set(false);
   }
 
   send(): void {

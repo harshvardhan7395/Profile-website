@@ -240,6 +240,26 @@ svg { fill: currentColor; flex-shrink: 0; }
   gap: var(--space-sm);
 }
 
+.chips {
+  align-items: center;
+}
+
+.skills__logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  object-fit: contain;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.skills__logo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .chips--small .chip {
   font-size: 0.72rem;
   padding: 0.15rem 0.55rem;
