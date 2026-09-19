@@ -3,13 +3,20 @@ import { ProfileData } from './profile-data.models';
 export const PROFILE_DATA: ProfileData = {
   hero: {
     name: 'Harshvardhan Akhare',
-    title: 'Software Engineer · Full Stack',
+    title: 'Full Stack Engineer · Backend focus',
     location: 'Coburg, Germany',
-    phone: '+49 157 51514445',
+    // Relative on purpose: the app is served under a base href (/Profile-website/).
+    cv: { label: 'Download CV', href: 'docs/Harshvardhan_CV.pdf' },
     links: [
       { label: 'harshvardhan.akhare@gmail.com', href: 'mailto:harshvardhan.akhare@gmail.com', icon: 'email' },
       { label: 'LinkedIn', href: 'https://linkedin.com/in/harshvardhan-akhare', icon: 'linkedin' },
       { label: 'GitHub', href: 'https://github.com/harshvardhan7395', icon: 'github' },
+    ],
+    stats: [
+      { value: '~20K', label: 'requests/day through the gateway I built' },
+      { value: '−30%', label: 'deployment time after automating CI/CD' },
+      { value: '+50%', label: 'user engagement after a UI redesign' },
+      { value: '4 h', label: 'developer time saved per project' },
     ],
   },
 
@@ -21,28 +28,35 @@ export const PROFILE_DATA: ProfileData = {
     'Experienced with Docker, Kubernetes, PostgreSQL, and AI-assisted development workflows (Claude ' +
     'Code, GitHub Copilot).',
 
+  availability:
+    "I'm available to join immediately, and I'm willing to relocate — both to the Netherlands and within Germany.",
+
   skillGroups: [
-    { label: 'Languages', skills: ['JavaScript', 'TypeScript', 'Python'] },
-    { label: 'Frontend', skills: ['Angular', 'React', 'Next.js', 'HTML5', 'CSS3', 'NGXS', 'Angular Material', 'Tailwind CSS'] },
-    { label: 'Backend', skills: ['NestJS', 'Express', 'Django', 'MongoDB', 'PostgreSQL', 'MySQL', 'Docker', 'CI/CD', 'Jest'] },
-    { label: 'Tools', skills: ['GitLab', 'Git', 'Postman', 'WebStorm', 'VS Code', 'PyCharm'] },
-    { label: 'AI Tools', skills: ['Claude Code', 'GitHub Copilot', 'OpenAI Codex'], accent: true },
-    { label: 'Languages', skills: ['English (C1)', 'German (A2)'] },
+    { label: 'Programming', skills: ['TypeScript', 'JavaScript', 'Python'] },
+    { label: 'Backend', skills: ['Node.js', 'NestJS', 'Express', 'Django REST Framework', 'PostgreSQL', 'Redis', 'MongoDB', 'MySQL'] },
+    { label: 'Frontend', skills: ['Angular', 'React', 'Next.js', 'NGXS', 'Angular Material', 'Tailwind CSS', 'HTML5', 'CSS3'] },
+    { label: 'DevOps & Cloud', skills: ['Docker', 'Kubernetes', 'GitLab CI', 'GitHub Actions', 'Prometheus', 'Grafana', 'Git'] },
+    { label: 'Testing', skills: ['Jest', 'Cypress', 'pytest'] },
+    { label: 'AI Tools', skills: ['Claude Code', 'GitHub Copilot', 'OpenAI Codex'] },
+    { label: 'Spoken', skills: ['English (C1)', 'German (A2)'] },
   ],
 
   experience: [
     {
-      dateRange: 'May 2025 – Present',
+      dateRange: 'May 2025 – Jun 2026',
       location: 'Bamberg, Germany',
       role: 'Software Development Engineer',
       company: 'KYL Software GmbH',
       bullets: [
         'Designed and built a secure network bridge (Gateway A→B) in Node.js for a German security authority, replacing a third-party solution and giving the team full control over cross-server microservice communication (~20K requests/day).',
-        'Implemented HTTP-to-WebSocket tunnelling, dual Ed25519 signature verification, idempotency guarantees, and Redis response caching.',
-        'Containerised backend services using Docker, improving deployment consistency across development and production environments.',
-        'Implemented cross-cutting middleware layers (authentication, access control, request signing, idempotency, caching) with full TDD coverage and structured observability (Winston logging + Prometheus metrics).',
-        'Built ExpressJS APIs with OpenAPI-driven contract validation, including custom JSON Patch middleware and schema-driven request enforcement, ensuring API reliability across consumer teams.',
         "Led development of a financial controlling backend (Node.js/Express, PostgreSQL/Sequelize) for Lupp Facility Management GmbH — designed the data model for contracts, task orders, and cost positions, and delivered OAuth2 role-based authentication, Excel reporting, data import pipelines, and a HATEOAS middleware layer.",
+        "Diagnosed a WebSocket reconnect failure where an expired TLS certificate put the gateway's tunnel into a constant retry loop after Kubernetes pod restarts; fixed it and added a certificate-expiry series to Grafana so future expirations surface before they cause an incident.",
+        'Implemented HTTP-to-WebSocket tunnelling, dual Ed25519 signature verification, idempotency guarantees, and Redis response caching.',
+        'Implemented cross-cutting middleware layers (authentication, access control, request signing, idempotency, caching) with full TDD coverage and structured observability (Winston logging + Prometheus metrics).',
+        'Built Express.js APIs with OpenAPI-driven contract validation, including custom JSON Patch middleware and schema-driven request enforcement, ensuring API reliability across consumer teams.',
+        'Built the Angular frontend for the Lupp project and wrote its Cypress end-to-end tests; mentored a junior developer on the project.',
+        'Containerised backend services using Docker, improving deployment consistency across development and production environments.',
+        'Performed code reviews on other German security authority projects at KYL, beyond my own project scope.',
       ],
     },
     {
@@ -51,11 +65,11 @@ export const PROFILE_DATA: ProfileData = {
       role: 'Software Development Engineer',
       company: 'vebasoft GmbH',
       bullets: [
-        'Improved an intuitive web application tailored for advanced football scouting and analytics using Angular, Angular Material, and Chart.js.',
-        'Utilised NestJS to process football match datasets and integrated data from 3+ sources for real-time analytics.',
-        'Utilised NGXS state management and implemented backend testing with Jest, ensuring efficient data handling, code reliability, and high-quality APIs.',
         'Designed and automated the GitLab CI/CD pipeline end-to-end, reducing deployment times by 30% and enabling multiple production releases per week.',
         'Worked directly with clients to translate requirements into features — redesigned the player profile UI and score visualisation module, boosting user engagement by 50%.',
+        'Processed football match datasets with NestJS and integrated data from 3+ sources for real-time analytics.',
+        'Extended a football scouting and analytics web application using Angular, Angular Material, and Chart.js.',
+        'Managed frontend state with NGXS and wrote backend tests with Jest, ensuring efficient data handling and reliable APIs.',
       ],
     },
     {
@@ -64,9 +78,9 @@ export const PROFILE_DATA: ProfileData = {
       role: 'Software Development Engineer',
       company: 'Hire Digital',
       bullets: [
-        'Redesigned and redeveloped the talent-matching website using Next.js, including developing a scalable blog post component capable of managing 300+ blogs.',
+        'Worked within an npm Workspaces monorepo spanning 7 packages, redesigning and redeveloping the talent-matching website using Next.js — including a scalable blog post component managing 300+ blogs — while consuming shared UI components from the internal @hiredigital/ui library.',
         "Developed a new client registration interface using ReactJS and Django REST APIs, and enhanced the call-scheduling component of HireDigital's React-Django web portal.",
-        'Developed GitHub Actions scripts for multiple web platforms of the company for testing, building, and deployment.',
+        "Developed GitHub Actions scripts across multiple monorepo workspaces for automated testing, building, and deployment of the company's web platforms.",
       ],
     },
     {

@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="section__heading">Experience</h2>
     <div class="timeline">
-      @for (entry of experience; track entry.company + entry.dateRange) {
+      @for (entry of experience; track entryKey(entry)) {
         <article class="timeline__entry">
           <div class="timeline__meta">
             <span class="timeline__date">{{ entry.dateRange }}</span>
@@ -12,10 +12,15 @@
             <h3 class="timeline__role">{{ entry.role }}</h3>
             <p class="timeline__company">{{ entry.company }}</p>
             <ul class="timeline__bullets">
-              @for (bullet of entry.bullets; track bullet) {
-                <li>{{ bullet }}</li>
+              @for (bullet of entry.bullets; track bullet; let i = $index) {
+                <li [class.timeline__bullet--collapsed]="isBulletHidden(entry, i)">{{ bullet }}</li>
               }
             </ul>
+            @if (isCollapsible(entry)) {
+              <button type="button" class="timeline__more" [attr.aria-expanded]="isExpanded(entry)" (click)="toggle(entry)">
+                {{ isExpanded(entry) ? '▾ Show less' : '▸ Show ' + (entry.bullets.length - collapsedBulletCount) + ' more' }}
+              </button>
+            }
           </div>
         </article>
       }
