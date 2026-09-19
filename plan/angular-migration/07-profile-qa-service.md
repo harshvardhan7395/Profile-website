@@ -1,8 +1,8 @@
 # Task 7: ProfileQaService
 
-Status: Pending
+Status: Completed
 Created: 2026-09-19
-Completed: —
+Completed: 2026-09-19
 
 ## Goal
 Implement the chatbot's answering logic as a pure, synchronous, `providedIn: 'root'` service that matches free-text questions against `PROFILE_DATA` — no HTTP, no LLM, fully client-side. This is the highest-value test surface in the whole migration.
