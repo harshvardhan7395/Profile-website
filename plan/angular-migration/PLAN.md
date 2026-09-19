@@ -28,7 +28,7 @@ Migrate the static index.html/style.css portfolio to an Angular app (Vitest for 
 - [x] [02-migrate-global-styles.md](02-migrate-global-styles.md) — copy `style.css` verbatim into `src/styles.css`
 - [x] [03-profile-data-model.md](03-profile-data-model.md) — typed `ProfileData` interfaces + `PROFILE_DATA` const (incl. all 9 GitHub projects)
 - [x] [04-migrate-static-sections.md](04-migrate-static-sections.md) — Hero/About/Skills/Experience/Education/Footer components + smoke tests
-- [ ] [05-project-card-component.md](05-project-card-component.md) — reusable `ProjectCardComponent` (company + GitHub variants)
+- [x] [05-project-card-component.md](05-project-card-component.md) — reusable `ProjectCardComponent` (company + GitHub variants)
 - [ ] [06-projects-component.md](06-projects-component.md) — `ProjectsComponent` tab switching + rendering
 - [ ] [07-profile-qa-service.md](07-profile-qa-service.md) — `ProfileQaService` entity lookup + intent scoring + fallback
 - [ ] [08-chatbot-component-and-flag.md](08-chatbot-component-and-flag.md) — `ChatbotComponent` + `FEATURE_FLAGS.chatbotEnabled` gating

@@ -1,8 +1,8 @@
 # Task 5: ProjectCardComponent
 
-Status: Pending
+Status: Completed
 Created: 2026-09-19
-Completed: —
+Completed: 2026-09-19
 
 ## Goal
 Build one reusable, standalone `ProjectCardComponent` that renders both company-project and GitHub-project cards, replicating the legacy expand/collapse and repo-link-click behavior exactly.
