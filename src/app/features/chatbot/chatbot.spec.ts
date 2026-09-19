@@ -76,7 +76,7 @@ describe('Chatbot', () => {
     expect(fixture.componentInstance.isOpen()).toBe(true);
   });
 
-  describe('when open on a small screen', () => {
+  describe('when open', () => {
     afterEach(() => {
       document.body.style.overflow = '';
     });
@@ -114,12 +114,42 @@ describe('Chatbot', () => {
       expect(document.body.style.overflow).toBe('');
     });
 
-    it('should focus the message input when the chat panel opens', async () => {
+    it('should not focus the message input when the chat panel opens', async () => {
       const fixture = await openChatbot();
       const input = (fixture.nativeElement as HTMLElement).querySelector('.chatbot__input');
 
       expect(input).toBeTruthy();
-      expect(document.activeElement).toBe(input);
+      expect(document.activeElement).not.toBe(input);
+    });
+
+    it('should show a backdrop behind the panel when the chat panel is open, and none when it is closed', async () => {
+      const fixture = TestBed.createComponent(Chatbot);
+      fixture.detectChanges();
+      const el = fixture.nativeElement as HTMLElement;
+      expect(el.querySelector('.chatbot__backdrop')).toBeFalsy();
+
+      fixture.componentInstance.toggleOpen();
+      fixture.detectChanges();
+
+      expect(el.querySelector('.chatbot__backdrop')).toBeTruthy();
+    });
+
+    it('should close the chat panel when the backdrop is clicked', async () => {
+      const fixture = await openChatbot();
+      const backdrop = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('.chatbot__backdrop')!;
+
+      backdrop.click();
+
+      expect(fixture.componentInstance.isOpen()).toBe(false);
+    });
+
+    it('should keep the chat panel open when a click lands inside the panel', async () => {
+      const fixture = await openChatbot();
+      const messages = (fixture.nativeElement as HTMLElement).querySelector<HTMLElement>('.chatbot__messages')!;
+
+      messages.click();
+
+      expect(fixture.componentInstance.isOpen()).toBe(true);
     });
 
     it('should close the chat panel when Escape is pressed while it is open', async () => {

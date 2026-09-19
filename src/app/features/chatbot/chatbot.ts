@@ -13,7 +13,6 @@ import { ChatMessage } from './chat-message.model';
 })
 export class Chatbot {
   @ViewChild('scrollAnchor') private scrollAnchor?: ElementRef<HTMLElement>;
-  @ViewChild('messageInput') private messageInput?: ElementRef<HTMLInputElement>;
 
   private readonly document = inject(DOCUMENT);
   private readonly profileQa = inject(ProfileQaService);
@@ -34,12 +33,6 @@ export class Chatbot {
       const previousOverflow = body.style.overflow;
       body.style.overflow = 'hidden';
       onCleanup(() => (body.style.overflow = previousOverflow));
-    });
-
-    afterRenderEffect(() => {
-      if (this.isOpen()) {
-        this.messageInput?.nativeElement.focus();
-      }
     });
 
     afterRenderEffect(() => {
