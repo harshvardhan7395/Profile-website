@@ -1,11 +1,14 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { Hero } from './features/hero/hero';
+import { About } from './features/about/about';
+import { Skills } from './features/skills/skills';
+import { Experience } from './features/experience/experience';
+import { Education } from './features/education/education';
+import { Footer } from './features/footer/footer';
 
 @Component({
-  imports: [],
+  imports: [Hero, About, Skills, Experience, Education, Footer],
   selector: 'app-root',
-  styleUrl: './app.css',
   templateUrl: './app.html',
 })
-export class App {
-  protected readonly title = signal('profile-website');
-}
+export class App {}

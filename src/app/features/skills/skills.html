@@ -1,0 +1,17 @@
+<section id="skills" class="section section--alt">
+  <div class="container">
+    <h2 class="section__heading">Skills</h2>
+    <div class="skills">
+      @for (group of skillGroups; track $index) {
+        <div class="skills__group">
+          <h3 class="skills__label">{{ group.label }}</h3>
+          <div class="chips">
+            @for (skill of group.skills; track skill) {
+              <span class="chip" [class.chip--accent]="group.accent">{{ skill }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

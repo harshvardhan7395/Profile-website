@@ -1,8 +1,8 @@
 # Task 4: Migrate static presentational sections
 
-Status: Pending
+Status: Completed
 Created: 2026-09-19
-Completed: —
+Completed: 2026-09-19
 
 ## Goal
 Recreate the Hero, About, Skills, Experience, Education, and Footer sections as standalone Angular components rendering from `PROFILE_DATA`, with visual parity to `legacy/index.html`.

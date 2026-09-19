@@ -1,0 +1,39 @@
+<section id="education" class="section">
+  <div class="container">
+    <h2 class="section__heading">Education</h2>
+    <div class="timeline">
+      @for (entry of education; track entry.institution) {
+        <article class="timeline__entry">
+          <div class="timeline__meta">
+            <span class="timeline__date">{{ entry.dateRange }}</span>
+            <span class="timeline__location">{{ entry.location }}</span>
+          </div>
+          <div class="timeline__body">
+            <h3 class="timeline__role">{{ entry.degree }}</h3>
+            <p class="timeline__company">{{ entry.institution }}</p>
+          </div>
+        </article>
+      }
+    </div>
+
+    <h2 class="section__heading section__heading--sub">Other Projects</h2>
+    <div class="timeline">
+      @for (project of otherProjects; track project.title) {
+        <article class="timeline__entry">
+          <div class="timeline__meta">
+            <span class="timeline__date">{{ project.date }}</span>
+          </div>
+          <div class="timeline__body">
+            <h3 class="timeline__role">{{ project.title }}</h3>
+            <p class="timeline__desc">{{ project.description }}</p>
+            <div class="chips chips--small" style="margin-top: 0.5rem;">
+              @for (t of project.tech; track t) {
+                <span class="chip">{{ t }}</span>
+              }
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

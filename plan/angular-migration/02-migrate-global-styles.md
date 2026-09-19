@@ -1,8 +1,8 @@
 # Task 2: Migrate global styles
 
-Status: Pending
+Status: Completed
 Created: 2026-09-19
-Completed: —
+Completed: 2026-09-19
 
 ## Goal
 Bring the existing 546-line `style.css` into the Angular app unchanged as the global stylesheet, so migrated components render pixel-identical output with zero CSS rewrites.

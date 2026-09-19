@@ -1,8 +1,8 @@
 # Task 3: Profile data model
 
-Status: Pending
+Status: Completed
 Created: 2026-09-19
-Completed: —
+Completed: 2026-09-19
 
 ## Goal
 Extract all hardcoded content from `legacy/index.html` into a single typed data source that both the section components and the chatbot's `ProfileQaService` (Task 7) consume — no duplication between rendering and Q&A knowledge.

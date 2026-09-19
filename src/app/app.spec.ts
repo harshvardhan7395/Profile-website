@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { App } from './app';
+import { PROFILE_DATA } from './data/profile-data';
 
 describe('App', () => {
   beforeEach(async () => {
@@ -15,10 +16,10 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it('should render the hero name from PROFILE_DATA', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, profile-website');
+    expect(compiled.querySelector('.hero__name')?.textContent).toContain(PROFILE_DATA.hero.name);
   });
 });

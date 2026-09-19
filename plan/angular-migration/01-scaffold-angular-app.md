@@ -1,8 +1,8 @@
 # Task 1: Scaffold Angular app on a feature branch
 
-Status: Pending
+Status: Completed
 Created: 2026-09-19
-Completed: —
+Completed: 2026-09-19
 
 ## Goal
 Stand up a bare Angular app (Vitest test runner, no Router, no SSR) inside the repo on `feature/angular-migration`, with the current static site archived for reference, without touching `main`.

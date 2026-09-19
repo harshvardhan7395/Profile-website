@@ -24,10 +24,10 @@ Migrate the static index.html/style.css portfolio to an Angular app (Vitest for 
 - should serve all JS/CSS chunks with no 404s once deployed under the `/Profile-website/` base href (verified via `workflow_dispatch` on the feature branch before merge)
 
 ## Tasks
-- [ ] [01-scaffold-angular-app.md](01-scaffold-angular-app.md) — `ng new` with Vitest on a feature branch, merge into repo root, archive legacy files
-- [ ] [02-migrate-global-styles.md](02-migrate-global-styles.md) — copy `style.css` verbatim into `src/styles.css`
-- [ ] [03-profile-data-model.md](03-profile-data-model.md) — typed `ProfileData` interfaces + `PROFILE_DATA` const (incl. all 9 GitHub projects)
-- [ ] [04-migrate-static-sections.md](04-migrate-static-sections.md) — Hero/About/Skills/Experience/Education/Footer components + smoke tests
+- [x] [01-scaffold-angular-app.md](01-scaffold-angular-app.md) — `ng new` with Vitest on a feature branch, merge into repo root, archive legacy files
+- [x] [02-migrate-global-styles.md](02-migrate-global-styles.md) — copy `style.css` verbatim into `src/styles.css`
+- [x] [03-profile-data-model.md](03-profile-data-model.md) — typed `ProfileData` interfaces + `PROFILE_DATA` const (incl. all 9 GitHub projects)
+- [x] [04-migrate-static-sections.md](04-migrate-static-sections.md) — Hero/About/Skills/Experience/Education/Footer components + smoke tests
 - [ ] [05-project-card-component.md](05-project-card-component.md) — reusable `ProjectCardComponent` (company + GitHub variants)
 - [ ] [06-projects-component.md](06-projects-component.md) — `ProjectsComponent` tab switching + rendering
 - [ ] [07-profile-qa-service.md](07-profile-qa-service.md) — `ProfileQaService` entity lookup + intent scoring + fallback
