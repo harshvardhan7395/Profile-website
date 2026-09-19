@@ -35,8 +35,23 @@ export const CHAT_INTENTS: ChatIntent[] = [
   },
   {
     id: 'contact',
-    keywords: ['contact', 'email', 'reach', 'linkedin', 'hire me', 'phone'],
-    respond: (data) => data.hero.links.map((l) => `${l.label}: ${l.href}`).join(', ') + `. Phone: ${data.hero.phone}`,
+    keywords: ['contact', 'email', 'reach', 'linkedin', 'hire me'],
+    respond: (data) => data.hero.links.map((l) => `${l.label}: ${l.href}`).join(', '),
+  },
+  {
+    id: 'availability',
+    keywords: [
+      'available',
+      'availability',
+      'notice',
+      'start date',
+      'when can you start',
+      'join',
+      'immediately',
+      'relocat',
+      'netherlands',
+    ],
+    respond: (data) => data.availability,
   },
   {
     id: 'location',

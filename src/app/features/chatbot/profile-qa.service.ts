@@ -3,7 +3,9 @@ import { PROFILE_DATA } from '../../data/profile-data';
 import { CHAT_INTENTS } from './chat-intents';
 
 const FALLBACK =
-  'I\'m not sure how to answer that. Try asking: "What are your skills?", "Tell me about FleetGate", or "What did you do at KYL Software?"';
+  'I\'m not sure how to answer that. Try asking: "What are your skills?", "Tell me about FleetGate", "What did you do at KYL Software?", or "Are you available to start?"';
+
+const AMBIGUOUS_COMPANY_FIRST_WORDS = new Set(['hire']);
 
 @Injectable({ providedIn: 'root' })
 export class ProfileQaService {
@@ -25,12 +27,24 @@ export class ProfileQaService {
       return `${project.tagline} ${project.description}`;
     }
 
-    const exp = this.data.experience.find((e) => normalized.includes(e.company.split(' ')[0].toLowerCase()));
+    const exp = this.data.experience.find((e) => this.mentionsCompany(normalized, e.company));
     if (exp) {
       return `${exp.role} at ${exp.company} (${exp.dateRange}, ${exp.location}). ${exp.bullets.join(' ')}`;
     }
 
     return this.matchTech(normalized);
+  }
+
+  // Users say "KYL" or "Maverick", so the first word is enough, unless it is an ordinary
+  // word ("can you join if we hire you?") — then the full company name is required,
+  // spelled with or without the space ("Hire Digital" / "HireDigital").
+  private mentionsCompany(normalized: string, company: string): boolean {
+    const fullName = company.toLowerCase();
+    const firstWord = fullName.split(' ')[0];
+    if (!AMBIGUOUS_COMPANY_FIRST_WORDS.has(firstWord)) {
+      return normalized.includes(firstWord);
+    }
+    return normalized.includes(fullName) || normalized.includes(fullName.replace(/\s+/g, ''));
   }
 
   private matchTech(normalized: string): string | null {

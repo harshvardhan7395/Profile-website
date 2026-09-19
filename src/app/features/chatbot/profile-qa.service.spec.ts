@@ -48,6 +48,52 @@ describe('ProfileQaService', () => {
     }
   });
 
+  it.each(['are you available?', 'what is your notice period?', 'when can you start?'])(
+    'should answer that I can join immediately when asked "%s"',
+    (question) => {
+      expect(service.answer(question)).toContain('join immediately');
+    },
+  );
+
+  it('should mention relocation to the Netherlands and within Germany when asked about relocating', () => {
+    const answer = service.answer('are you willing to relocate?');
+
+    expect(answer).toContain('Netherlands');
+    expect(answer).toContain('within Germany');
+  });
+
+  it('should answer with availability, not the location intent, when asked "are you open to relocation?"', () => {
+    const answer = service.answer('are you open to relocation?');
+
+    expect(answer).toContain('join immediately');
+    expect(answer).not.toBe(PROFILE_DATA.hero.location);
+  });
+
+  it('should answer availability, not the Hire Digital entry, when the question contains "hire" but not "Hire Digital"', () => {
+    const answer = service.answer('could you join immediately if we hire you?');
+
+    expect(answer).toContain('join immediately');
+    expect(answer).not.toContain('Hire Digital');
+  });
+
+  it('should still return the Hire Digital entry when the question names "Hire Digital"', () => {
+    const answer = service.answer('what did you do at Hire Digital?');
+    const exp = PROFILE_DATA.experience.find((e) => e.company === 'Hire Digital')!;
+
+    expect(answer).toContain(exp.role);
+    expect(answer).toContain(exp.bullets[0]);
+  });
+
+  it('should return the Hire Digital entry when the question spells the name "HireDigital"', () => {
+    const answer = service.answer('what did you do at HireDigital?');
+
+    expect(answer).toContain('Software Development Engineer at Hire Digital');
+  });
+
+  it('should still answer with the location when asked "where are you based?"', () => {
+    expect(service.answer('where are you based?')).toBe(PROFILE_DATA.hero.location);
+  });
+
   it('should return a fallback message with example questions when nothing matches', () => {
     const answer = service.answer('asdkjqwoiuerqwoiuasdf nonsense gibberish');
     expect(answer.toLowerCase()).toContain('not sure');

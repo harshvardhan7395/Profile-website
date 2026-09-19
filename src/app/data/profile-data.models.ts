@@ -4,12 +4,23 @@ export interface ContactLink {
   icon: 'email' | 'linkedin' | 'github';
 }
 
+export interface HeroStat {
+  value: string;
+  label: string;
+}
+
+export interface HeroCv {
+  label: string;
+  href: string;
+}
+
 export interface HeroData {
   name: string;
   title: string;
   location: string;
-  phone: string;
+  cv: HeroCv;
   links: ContactLink[];
+  stats: HeroStat[];
 }
 
 export interface SkillGroup {
@@ -67,6 +78,7 @@ export interface FooterData {
 export interface ProfileData {
   hero: HeroData;
   about: string;
+  availability: string;
   skillGroups: SkillGroup[];
   experience: ExperienceEntry[];
   companyProjects: CompanyProject[];
