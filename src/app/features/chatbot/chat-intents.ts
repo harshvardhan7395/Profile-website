@@ -51,7 +51,7 @@ export const CHAT_INTENTS: ChatIntent[] = [
       'when can you start',
       'join',
       'immediately',
-      'relocate',
+      'relocat',
       'netherlands',
     ],
     respond: (data) => data.availability,
