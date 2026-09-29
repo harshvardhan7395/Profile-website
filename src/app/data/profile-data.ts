@@ -258,6 +258,13 @@ export const PROFILE_DATA: ProfileData = {
       description: 'Built an AR Android application facilitating indoor navigation inside a college campus.',
       tech: ['C#', 'Unity', 'SQLite'],
     },
+    {
+      date: ' Aug 2016',
+      title: 'Line Follower Robot',
+      description:
+        'Built an autonomous line following robot on Arduino, using IR sensors to track a black line and C++ control logic to steer the motors.',
+      tech: ['C++', 'Arduino', 'IR Sensors', 'Embedded Systems'],
+    },
   ],
 
   footer: {
