@@ -26,7 +26,10 @@ export const CHAT_INTENTS: ChatIntent[] = [
     id: 'projects',
     keywords: ['project', 'portfolio', 'github repo'],
     respond: (data) =>
-      [...data.companyProjects, ...data.githubProjects].map((p) => `${p.title}: ${p.tagline}`).join('\n'),
+      [
+        ...[...data.companyProjects, ...data.githubProjects].map((p) => `${p.title}: ${p.tagline}`),
+        ...data.otherProjects.map((p) => `${p.title} (${p.date}): ${p.description}`),
+      ].join('\n'),
   },
   {
     id: 'education',
@@ -48,7 +51,7 @@ export const CHAT_INTENTS: ChatIntent[] = [
       'when can you start',
       'join',
       'immediately',
-      'relocat',
+      'relocate',
       'netherlands',
     ],
     respond: (data) => data.availability,

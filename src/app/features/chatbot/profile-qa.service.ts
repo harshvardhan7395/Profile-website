@@ -27,6 +27,11 @@ export class ProfileQaService {
       return `${project.tagline} ${project.description}`;
     }
 
+    const otherProject = this.data.otherProjects.find((p) => normalized.includes(p.title.toLowerCase()));
+    if (otherProject) {
+      return `${otherProject.title} (${otherProject.date}): ${otherProject.description} Built with ${otherProject.tech.join(', ')}.`;
+    }
+
     const exp = this.data.experience.find((e) => this.mentionsCompany(normalized, e.company));
     if (exp) {
       return `${exp.role} at ${exp.company} (${exp.dateRange}, ${exp.location}). ${exp.bullets.join(' ')}`;
@@ -50,7 +55,9 @@ export class ProfileQaService {
   private matchTech(normalized: string): string | null {
     const allTech = new Set<string>();
     this.data.skillGroups.forEach((g) => g.skills.forEach((s) => allTech.add(s)));
-    [...this.data.companyProjects, ...this.data.githubProjects].forEach((p) => p.tech.forEach((t) => allTech.add(t)));
+    [...this.data.companyProjects, ...this.data.githubProjects, ...this.data.otherProjects].forEach((p) =>
+      p.tech.forEach((t) => allTech.add(t)),
+    );
 
     const tech = [...allTech]
       .filter((t) => normalized.includes(t.toLowerCase()))
@@ -62,8 +69,8 @@ export class ProfileQaService {
     const skillGroup = this.data.skillGroups.find((g) =>
       g.skills.some((s) => s.toLowerCase() === tech.toLowerCase()),
     );
-    const projects = [...this.data.companyProjects, ...this.data.githubProjects].filter((p) =>
-      p.tech.some((t) => t.toLowerCase() === tech.toLowerCase()),
+    const projects = [...this.data.companyProjects, ...this.data.githubProjects, ...this.data.otherProjects].filter(
+      (p) => p.tech.some((t) => t.toLowerCase() === tech.toLowerCase()),
     );
 
     const parts: string[] = [];

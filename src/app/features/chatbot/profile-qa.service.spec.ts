@@ -115,4 +115,24 @@ describe('ProfileQaService', () => {
     const answer = service.answer('what is your experience with Angular Material?');
     expect(answer).toContain('Angular Material');
   });
+
+  it("should return an other-project's description when the question names that project", () => {
+    const answer = service.answer('tell me about the line follower robot');
+    const project = PROFILE_DATA.otherProjects.find((p) => p.title === 'Line Follower Robot')!;
+
+    expect(answer).toContain(project.title);
+    expect(answer).toContain(project.description);
+  });
+
+  it('should mention the line follower robot when asked about Arduino experience', () => {
+    const answer = service.answer('do you have experience with Arduino?');
+    expect(answer).toContain('Line Follower Robot');
+  });
+
+  it('should list other projects alongside company/github projects when asked about projects generally', () => {
+    const answer = service.answer('what projects have you worked on?');
+    for (const project of PROFILE_DATA.otherProjects) {
+      expect(answer).toContain(project.title);
+    }
+  });
 });
