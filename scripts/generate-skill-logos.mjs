@@ -3,7 +3,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import * as simpleIcons from 'simple-icons';
-import { SKILL_LOGOS } from '../src/app/features/skills/skill-logos.ts';
+import { CUSTOM_LOGO_SLUGS, SKILL_LOGOS } from '../src/app/features/skills/skill-logos.ts';
 
 const outDir = fileURLToPath(new URL('../public/logos/skills/', import.meta.url));
 const iconsBySlug = new Map(
@@ -15,9 +15,12 @@ const iconsBySlug = new Map(
 mkdirSync(outDir, { recursive: true });
 
 for (const slug of new Set(Object.values(SKILL_LOGOS))) {
+  if (CUSTOM_LOGO_SLUGS.has(slug)) continue;
   const icon = iconsBySlug.get(slug);
   if (!icon) throw new Error(`simple-icons has no icon with slug "${slug}"`);
-  const svg = icon.svg.replace('<svg ', `<svg fill="#${icon.hex}" `);
+  // White brand colours (e.g. Unity) would vanish on the light chip background.
+  const hex = icon.hex.toUpperCase() === 'FFFFFF' ? '000000' : icon.hex;
+  const svg = icon.svg.replace('<svg ', `<svg fill="#${hex}" `);
   writeFileSync(`${outDir}${slug}.svg`, svg);
-  console.log(`${slug}.svg  #${icon.hex}`);
+  console.log(`${slug}.svg  #${hex}`);
 }

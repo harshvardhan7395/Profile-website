@@ -11,6 +11,18 @@
           <div class="timeline__body">
             <h3 class="timeline__role">{{ entry.degree }}</h3>
             <p class="timeline__company">{{ entry.institution }}</p>
+            @if (entry.languages?.length) {
+              <div class="chips chips--small" style="margin-top: 0.5rem;">
+                @for (lang of entry.languages; track lang) {
+                  <span class="skills__item chip">
+                    @if (logoSrc(lang); as src) {
+                      <img class="skills__logo" [src]="src" alt="" />
+                    }
+                    {{ lang }}
+                  </span>
+                }
+              </div>
+            }
           </div>
         </article>
       }
@@ -28,7 +40,12 @@
             <p class="timeline__desc">{{ project.description }}</p>
             <div class="chips chips--small" style="margin-top: 0.5rem;">
               @for (t of project.tech; track t) {
-                <span class="chip">{{ t }}</span>
+                <span class="skills__item chip">
+                  @if (logoSrc(t); as src) {
+                    <img class="skills__logo" [src]="src" alt="" />
+                  }
+                  {{ t }}
+                </span>
               }
             </div>
           </div>
