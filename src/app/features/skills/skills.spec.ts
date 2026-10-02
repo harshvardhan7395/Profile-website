@@ -29,10 +29,10 @@ describe('Skills', () => {
   it('should render the logo inside the pill when a skill has a mapped logo', async () => {
     const el = await renderSkills();
 
-    for (const name of ['TypeScript', 'Node.js', 'GitLab CI', 'Claude Code']) {
+    for (const name of ['TypeScript', 'Node.js', 'GitLab CI', 'Claude Code', 'NGXS', 'CSS3', 'Django REST Framework']) {
       expect(pill(el, name)?.querySelector('img'), name).not.toBeNull();
     }
-    expect(el.querySelectorAll('.chip img').length).toBe(27);
+    expect(el.querySelectorAll('.chip img').length).toBe(30);
     expect(el.querySelectorAll('img:not(.chip img)').length).toBe(0);
   });
 
@@ -58,7 +58,7 @@ describe('Skills', () => {
   it('should render a pill without a logo when a skill has no logo', async () => {
     const el = await renderSkills();
 
-    for (const name of ['NGXS', 'CSS3', 'Angular Material', 'English (C1)', 'German (A2)']) {
+    for (const name of ['Angular Material', 'OpenAI Codex', 'English (C1)', 'German (A2)']) {
       const p = pill(el, name);
       expect(p, name).toBeDefined();
       expect(p?.querySelector('img'), name).toBeNull();

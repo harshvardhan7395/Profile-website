@@ -247,8 +247,10 @@ svg { fill: currentColor; flex-shrink: 0; }
 }
 
 .skills__logo {
-  width: 1rem;
+  /* Square logos render at 1rem; wordmarks (NGXS, DRF) keep their aspect ratio. */
+  width: auto;
   height: 1rem;
+  max-width: 3.5rem;
   object-fit: contain;
 }
 

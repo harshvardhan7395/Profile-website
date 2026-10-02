@@ -61,6 +61,7 @@ export interface EducationEntry {
   location: string;
   degree: string;
   institution: string;
+  languages?: string[];
 }
 
 export interface OtherProjectEntry {

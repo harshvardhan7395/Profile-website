@@ -20,6 +20,9 @@ export const SKILL_LOGOS: Readonly<Record<string, string>> = {
   'Next.js': 'nextdotjs',
   'Tailwind CSS': 'tailwindcss',
   HTML5: 'html5',
+  CSS3: 'css3',
+  NGXS: 'ngxs',
+  'Django REST Framework': 'djangorest',
   Docker: 'docker',
   Kubernetes: 'kubernetes',
   'GitLab CI': 'gitlab',
@@ -32,4 +35,24 @@ export const SKILL_LOGOS: Readonly<Record<string, string>> = {
   pytest: 'pytest',
   'Claude Code': 'claude',
   'GitHub Copilot': 'githubcopilot',
+  Java: 'java',
+  'C++': 'cplusplus',
+  'C#': 'csharp',
+  Unity: 'unity',
+  SQLite: 'sqlite',
+  Arduino: 'arduino',
 };
+
+/**
+ * Slugs simple-icons does not ship (Java and C# were removed for trademark
+ * reasons; CSS3, NGXS and Django REST Framework were never included). Their
+ * SVGs are committed by hand — from devicon (DRF with its construction lines
+ * removed and cropped), or for NGXS the official PNG made transparent and
+ * wrapped in an SVG — and the generator script skips them.
+ */
+export const CUSTOM_LOGO_SLUGS: ReadonlySet<string> = new Set(['java', 'csharp', 'css3', 'ngxs', 'djangorest']);
+
+export function skillLogoSrc(skill: string): string | null {
+  const slug = SKILL_LOGOS[skill];
+  return slug ? `logos/skills/${slug}.svg` : null;
+}

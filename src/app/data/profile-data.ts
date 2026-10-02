@@ -242,6 +242,7 @@ export const PROFILE_DATA: ProfileData = {
       location: 'Pune, India',
       degree: 'Master of Science — Industrial Mathematics with Computer Applications',
       institution: 'Fergusson College',
+      languages: ['Java', 'C++'],
     },
     {
       dateRange: 'Jun 2014 – May 2017',
